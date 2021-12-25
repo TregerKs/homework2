@@ -10,13 +10,13 @@ public interface BoxInterface {
 
     void removeSweet();
 
-    void totalWeight();
+    int totalWeight();
 
-    void totalPrice();
+    int totalPrice();
 
-    void optimizationWeight(int weight);
+    void optimizeWeight(int weight);
 
-    void optimizationPrice(int weight);
+    void optimizePrice(int weight);
 
     void whatsInTheBox();
 

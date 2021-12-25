@@ -12,13 +12,15 @@ public class Main {
         box.addSweet(new Lollipop("Трость", 35, 40, "Клубника с молоком"));
         box.addSweet(new Chocolate("Шоклад", 140, 102, "С ароматом счастья"));
         box.whatsInTheBox();
-        box.totalWeight();
-        box.totalPrice();
+        System.out.println(box.totalWeight());
+        System.out.println(box.totalPrice());
         box.removeSweet(2);
-        System.out.println(box);
+        box.whatsInTheBox();
         box.removeSweet();
-        System.out.println(box);
-        box.optimizationWeight(150);
-        box.optimizationPrice(150);
+        box.whatsInTheBox();
+        box.optimizeWeight(350);
+        box.optimizePrice(150);
+        box.whatsInTheBox();
+        System.out.println(box.totalWeight());
     }
 }

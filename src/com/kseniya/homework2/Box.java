@@ -26,21 +26,21 @@ public class Box implements BoxInterface {
     }
 
     @Override
-    public void totalWeight() {
+    public int totalWeight() {
         int totalWeight = 0;
-        for (int i = 0; i < list.size(); i++) {
-            totalWeight += list.get(i).weight;
+        for (Sweet sweet : list) {
+            totalWeight += sweet.weight;
         }
-        System.out.println(totalWeight);
+        return totalWeight;
     }
 
     @Override
-    public void totalPrice() {
+    public int totalPrice() {
         int totalPrice = 0;
-        for (int i = 0; i < list.size(); i++) {
-            totalPrice += list.get(i).price;
+        for (Sweet sweet : list) {
+            totalPrice += sweet.price;
         }
-        System.out.println(totalPrice);
+        return totalPrice;
     }
 
     @Override
@@ -49,17 +49,10 @@ public class Box implements BoxInterface {
                 " сладости: " + list;
     }
 
-    public int totalWeightForOptimization() {
-        int totalWeight = 0;
-        for (int i = 0; i < list.size(); i++) {
-            totalWeight += list.get(i).weight;
-        }
-        return totalWeight;
-    }
 
     @Override
-    public void optimizationWeight(int weight) {
-        int totalWeight = totalWeightForOptimization();
+    public void optimizeWeight(int weight) {
+        int totalWeight = totalWeight();
         while (totalWeight > weight) {
             int min = list.get(0).weight;
             int indexRemove = 0;
@@ -70,15 +63,13 @@ public class Box implements BoxInterface {
                 }
             }
             removeSweet(indexRemove);
-            totalWeight = totalWeightForOptimization();
+            totalWeight = totalWeight();
         }
-        System.out.println(totalWeight);
-        System.out.println(list);
     }
 
     @Override
-    public void optimizationPrice(int weight) {
-        int totalWeight = totalWeightForOptimization();
+    public void optimizePrice(int weight) {
+        int totalWeight = totalWeight();
         while (totalWeight > weight) {
             int min = list.get(0).price;
             int indexRemove = 0;
@@ -89,10 +80,8 @@ public class Box implements BoxInterface {
                 }
             }
             removeSweet(indexRemove);
-            totalWeight = totalWeightForOptimization();
+            totalWeight = totalWeight();
         }
-        System.out.println(totalWeight);
-        System.out.println(list);
     }
 
     @Override
